@@ -4,7 +4,7 @@
   "description": "webpack config and cli",
   "main": "index.js",
   "scripts": {
-    "publish": "npm test && npm version patch && git push && npm publish --access public",
+    "deploy": "npm test && npm version patch && git push && npm publish --access public",
     "test": "echo \"Error: no test specified\""
   },
   "repository": {
