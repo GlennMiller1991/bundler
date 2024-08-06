@@ -1,6 +1,6 @@
 {
   "name": "@fbltd/bundler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "webpack config and cli",
   "main": "index.js",
   "scripts": {
