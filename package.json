@@ -4,6 +4,7 @@
   "description": "webpack config and cli",
   "main": "index.js",
   "scripts": {
+    "run": "webpack index.ts",
     "deploy": "npm test && npm version patch && git push && npm publish --access public",
     "test": "echo \"Error: no test specified\""
   },
@@ -19,5 +20,12 @@
   "homepage": "https://github.com/GlennMiller1991/bundler#readme",
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@types/webpack": "^5.28.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4",
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4"
   }
 }
