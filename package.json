@@ -1,0 +1,23 @@
+{
+  "name": "@fbltd/bundler",
+  "version": "1.0.0",
+  "description": "webpack config and cli",
+  "main": "index.js",
+  "scripts": {
+    "publish": "npm test && npm version patch && git push && npm publish --access public",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GlennMiller1991/bundler.git"
+  },
+  "author": "Alexandr Basalov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GlennMiller1991/bundler/issues"
+  },
+  "homepage": "https://github.com/GlennMiller1991/bundler#readme",
+  "publishConfig": {
+    "access": "public"
+  }
+}
