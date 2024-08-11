@@ -1,6 +1,6 @@
 {
   "name": "@fbltd/bundler",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "",
   "bin": {
     "fbltd_make": "dist/index.js"
