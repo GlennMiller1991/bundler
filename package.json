@@ -1,0 +1,19 @@
+{
+  "name": "@fbltd/bundler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GlennMiller1991/bundler.git"
+  },
+  "author": "Alexandr Basalov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GlennMiller1991/bundler/issues"
+  },
+  "homepage": "https://github.com/GlennMiller1991/bundler#readme"
+}
