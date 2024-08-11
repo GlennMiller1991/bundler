@@ -1,0 +1,22 @@
+{
+  "name": "bundler",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "bin": {
+    "make_bundle": "dist/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/node": "^22.1.0",
+    "@types/webpack-dev-server": "^4.7.2",
+    "ts-node": "^10.9.2",
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}
