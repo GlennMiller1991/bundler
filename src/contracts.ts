@@ -3,4 +3,5 @@ export interface IConfig {
     mode: 'production' | 'development'
     output: string,
     port: number,
+    serve: boolean,
 }

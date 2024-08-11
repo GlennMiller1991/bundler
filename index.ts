@@ -3,29 +3,23 @@
 import childProcess from "node:child_process";
 import { webpack } from 'webpack';
 import WebpackDevServer from 'webpack-dev-server'
-
-import Config from './src/config';
+import {Config} from './src/config';
 import { TypeCaster } from './src/type-caster';
 import path from "path";
+import { parseFileToConfig } from "./src/parser";
+import { IConfig } from "./src/contracts";
 
-function parseFileToConfig(obj: {}): Config {
-	const config = new Config(module.path)
-
-	for (let [key, value] of Object.entries<string>(obj)) {
-		if (config.hasOwnProperty('_' + key)) {
-			const castedValue = TypeCaster.cast(config, key as keyof Config, value)
-			if (castedValue === void 0) continue
-			config[key as '_entry'] = castedValue as string
-		}
-	}
-
-	return config
-}
 
 async function main() {
 	const v = path.resolve(process.cwd(), './bundler.config.json')
 
-	const configFile = await import(v)
+	let configFile: Partial<IConfig>
+	try {
+		configFile = await import(v)
+	} catch(err) {
+		throw new Error('Cannot load bundler.config.json file')
+		return
+	}
 
 	const config = parseFileToConfig(configFile)
 

@@ -9,7 +9,7 @@ const defaultConfig: IConfig = {
     port: 3000,
 }
 
-export default class Config implements IConfig {
+export class Config implements IConfig {
     _entry: string
     _mode: 'production' | 'development'
     _output: string
