@@ -7,6 +7,7 @@ const defaultConfig: IConfig = {
     mode: 'development',
     output: 'main.js',
     port: 3000,
+    serve: false,
 }
 
 export class Config implements IConfig {
