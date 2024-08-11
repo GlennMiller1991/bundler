@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
+  "bin": {
+    "fbltd_make": "dist/index.js"
+  },
+  "files": ["dist", "README.md"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +19,16 @@
   "bugs": {
     "url": "https://github.com/GlennMiller1991/bundler/issues"
   },
-  "homepage": "https://github.com/GlennMiller1991/bundler#readme"
+  "homepage": "https://github.com/GlennMiller1991/bundler#readme",
+  "devDependencies": {
+    "@types/node": "^22.2.0",
+    "@types/webpack": "^5.28.5",
+    "@types/webpack-dev-server": "^4.7.2",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "typescript": "^5.5.4",
+    "webpack": "^5.93.0",
+    "webpack-dev-server": "^5.0.4"
+  }
 }
