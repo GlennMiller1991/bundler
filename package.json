@@ -11,7 +11,8 @@
     "README.md"
   ],
   "scripts": {
-    "deploy": "npm version patch && git push && npm publish",
+    "build": "rm -r dist || echo 'but this is ok' && node_modules/.bin/tsc",
+    "deploy": "npm run build && npm version patch && git push && npm publish",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
