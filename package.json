@@ -7,7 +7,8 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "README.md",
+    "tsconfig.json"
   ],
   "scripts": {
     "build": "rm -r dist || echo 'but this is ok' && node_modules/.bin/tsc",
