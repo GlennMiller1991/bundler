@@ -22,6 +22,7 @@ export class Config implements IConfig {
         this.output = config.output
         this.port = config.port
         this.mode = config.mode
+        this.serve = config.serve
     }
 
     get entry() {
