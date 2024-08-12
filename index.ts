@@ -3,8 +3,6 @@
 import childProcess from "node:child_process";
 import { webpack } from 'webpack';
 import WebpackDevServer from 'webpack-dev-server'
-import {Config} from './src/config';
-import { TypeCaster } from './src/type-caster';
 import path from "path";
 import { parseFileToConfig } from "./src/parser";
 import { IConfig } from "./src/contracts";
@@ -43,7 +41,7 @@ async function main() {
 		} else {
 			compiler.run((err, result) => {
 				if (err) console.error(err)
-				else console.warn('build succuss')
+				else console.warn('build success')
 			})
 		}
 	}

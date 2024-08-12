@@ -48,7 +48,7 @@ export class Config implements IConfig {
 
     set output(output: typeof this._output) {
         if (!output) return
-        this._output = path.relative(process.cwd(), output)
+        this._output = path.resolve(process.cwd(), output)
     }
 
     get port() {
@@ -119,7 +119,8 @@ export class Config implements IConfig {
             entry: this.entry,
             output: {
                 clean: true,
-                filename: this.output
+                filename: path.basename(this.output),
+                path: path.dirname(this.output)
             }
         }
 
