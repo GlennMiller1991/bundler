@@ -8,6 +8,7 @@ const defaultConfig: IConfig = {
     output: 'main.js',
     port: 3000,
     serve: false,
+    library: '',
 }
 
 export class Config implements IConfig {
@@ -16,6 +17,7 @@ export class Config implements IConfig {
     _output: string
     _port: number
     _serve: boolean
+    library: string
 
     constructor(readonly execPath: string, config = defaultConfig) {
         this.entry = config.entry
@@ -23,6 +25,7 @@ export class Config implements IConfig {
         this.port = config.port
         this.mode = config.mode
         this.serve = config.serve
+        this.library = config.library
     }
 
     get entry() {
@@ -71,7 +74,6 @@ export class Config implements IConfig {
     }
 
 
-
     get isOk() {
         let isOk = !!(this.entry && this.output)
 
@@ -86,17 +88,6 @@ export class Config implements IConfig {
         }
 
         return false
-    }
-
-    toWebpackCLI() {
-        if (!this.isOk) return ''
-        return [
-            this.serveCommand,
-            `--env entry=${this.entry}`,
-            `--env mode=${this.mode}`,
-            `--env output=${this.output}`
-        ].join(' ')
-
     }
 
     get serveCommand() {
@@ -121,7 +112,8 @@ export class Config implements IConfig {
             output: {
                 clean: true,
                 filename: path.basename(this.output),
-                path: path.dirname(this.output)
+                path: path.dirname(this.output),
+                library: this.library || undefined,
             }
         }
 

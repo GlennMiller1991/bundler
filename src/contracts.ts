@@ -4,4 +4,5 @@ export interface IConfig {
     output: string,
     port: number,
     serve: boolean,
+    library: string,
 }
