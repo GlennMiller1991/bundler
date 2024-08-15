@@ -10,13 +10,14 @@ export function parseFileToConfig(obj: {}): Config | undefined {
             if (castedValue === void 0) continue
             config[key as '_entry'] = castedValue as string
         } else {
-            console.error('passed file does not coincidence with schema')
+            console.error('passed file does not coincidence with schema\npassed key', key)
             console.warn('Schema:')
             console.warn('{')
             Object.entries(defaultConfig).forEach(([key, value]) => {
                 console.warn(`\t${key}: ${typeof(value)}`)
             })
             console.warn('}')
+            return undefined
         }
     }
 

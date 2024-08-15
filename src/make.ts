@@ -21,7 +21,7 @@ async function main() {
 
 	const config = parseFileToConfig(configFile)
 
-	if (config.isOk) {
+	if (config?.isOk) {
 		const wpConfig = config.toWebpackConfig()!
 
 
@@ -44,6 +44,8 @@ async function main() {
 				else console.warn('build success')
 			})
 		}
+	} else {
+		console.error('something went wrong')
 	}
 }
 
