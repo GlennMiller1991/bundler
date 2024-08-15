@@ -12,6 +12,7 @@ async function main() {
         configFile = await import(packagePath)
     } catch(err) {
         console.error('Cannot open file package.json')
+        return
     }
 
     if (!configFile) configFile = {}
