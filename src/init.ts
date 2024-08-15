@@ -23,7 +23,7 @@ async function main() {
     }
 
 
-    const buffer = Buffer.from(JSON.stringify(configFile));
+    const buffer = Buffer.from(JSON.stringify(configFile, null, '\t'));
     try {
         await fs.writeFile(packagePath, buffer, {flag: "w+"});
     } catch(err) {
