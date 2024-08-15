@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import childProcess from "node:child_process";
+import fs from 'node:fs/promises';
 import { webpack } from 'webpack';
 import WebpackDevServer from 'webpack-dev-server'
 import path from "path";
@@ -13,9 +14,9 @@ async function main() {
 
 	let configFile: Partial<IConfig>
 	try {
-		configFile = await import(v)
+		configFile = JSON.parse(await fs.readFile(v, {encoding: 'utf-8'}))
 	} catch(err) {
-		throw new Error('Cannot load bundler.config.json file')
+		throw new Error('Cannot read bundler.config.json file')
 		return
 	}
 
