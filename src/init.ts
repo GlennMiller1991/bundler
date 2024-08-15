@@ -6,22 +6,29 @@ import fs from 'node:fs/promises'
 async function main() {
     const packageJson = './package.json'
     const packagePath = path.resolve(process.cwd(), packageJson)
-    let configFile: object
+    let configFile: {scripts?: Record<string, string>}
 
-    const handle = await fs.open(packagePath, "r+");
-    const buffer = Buffer.from('ee');
-    const cursor = 255
-    console.log(buffer)
     try {
-        const { bytesWritten } = await handle.write(buffer, 0, buffer.length, cursor);
-        console.warn(`${bytesWritten} characters added to file`);
-    } catch (err) {
-        console.error('Cant write to package.json');
-    } finally {
-        handle.close();
+        configFile = await import(packagePath)
+    } catch(err) {
+        console.error('Cannot open file package.json')
+    }
+
+    if (!configFile) configFile = {}
+    if (!configFile.scripts) configFile.scripts = {}
+
+
+    if (!configFile.scripts.make) {
+        configFile.scripts.make = 'node_modules/.bin/fbltd_make'
     }
 
 
+    const buffer = Buffer.from(JSON.stringify(configFile));
+    try {
+        await fs.writeFile(packagePath, buffer, {flag: "w+"});
+    } catch(err) {
+        console.error('Cannot write to package.json')
+    }
 }
 
 main()
