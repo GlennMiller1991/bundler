@@ -3,8 +3,8 @@
   "version": "2.0.16",
   "description": "",
   "bin": {
-    "fbltd_make": "dist/make.js",
-    "fbltd_init": "dist/init.js"
+    "fbltd_make": "dist/bin/make.js",
+    "fbltd_init": "dist/bin/init.js"
   },
   "files": [
     "dist",
