@@ -2,9 +2,12 @@
     "compilerOptions": {
         "resolveJsonModule": true,
         "esModuleInterop": true,
-        "outDir": "dist",
+        "outDir": "dist/bin",
         "removeComments": true,
         "allowSyntheticDefaultImports": true,
+        "declaration": true,
+        "declarationMap": true,
+        "declarationDir": "dist/types",
     },
     "exclude": [
         "node_modules"

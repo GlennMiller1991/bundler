@@ -2,7 +2,7 @@ import { IConfig } from "./contracts"
 import path from 'path'
 import { Configuration } from "webpack"
 
-const defaultConfig: IConfig = {
+export const defaultConfig: IConfig = {
     entry: 'index.js',
     mode: 'development',
     output: 'main.js',

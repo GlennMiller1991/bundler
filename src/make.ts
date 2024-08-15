@@ -4,8 +4,8 @@ import childProcess from "node:child_process";
 import { webpack } from 'webpack';
 import WebpackDevServer from 'webpack-dev-server'
 import path from "path";
-import { parseFileToConfig } from "./src/parser";
-import { IConfig } from "./src/contracts";
+import { parseFileToConfig } from "./infra/parser";
+import { IConfig } from "./infra/contracts";
 
 
 async function main() {
