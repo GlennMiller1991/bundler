@@ -7,6 +7,7 @@ import WebpackDevServer from 'webpack-dev-server'
 import path from "path";
 import { parseFileToConfig } from "./infra/parser";
 import { IConfig } from "./infra/contracts";
+import jest from 'jest';
 
 
 async function main() {
