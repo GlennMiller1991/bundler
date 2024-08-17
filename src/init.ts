@@ -9,7 +9,7 @@ async function main() {
     let configFile: { scripts?: Record<string, string> }
 
     try {
-        configFile = await import(packagePath)
+        configFile = JSON.parse(await fs.promises.readFile(packagePath, {encoding: 'utf-8'}))
     } catch (err) {
         console.error('Cannot open file package.json')
         return
