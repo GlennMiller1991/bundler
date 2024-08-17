@@ -4,12 +4,14 @@
   "description": "",
   "bin": {
     "fbltd_make": "dist/bin/make.js",
-    "fbltd_init": "dist/bin/init.js"
+    "fbltd_init": "dist/bin/init.js",
+    "fbltd_test": "dist/bin/test.js"
   },
   "files": [
     "dist",
     "README.md",
-    "tsconfig.json"
+    "tsconfig.json",
+    "jest.config.json"
   ],
   "scripts": {
     "build": "rm -r dist || echo 'but this is ok' && node_modules/.bin/tsc",
