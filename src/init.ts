@@ -5,7 +5,8 @@ import fs from 'node:fs'
 
 async function main() {
     const packageJson = './package.json'
-    const packagePath = path.resolve(process.env.INIT_CWD || process.cwd(), packageJson)
+    const projDir = process.env.INIT_CWD || process.cwd()
+    const packagePath = path.resolve(projDir, packageJson)
     let configFile: { scripts?: Record<string, string> }
 
     try {
@@ -25,7 +26,7 @@ async function main() {
 
     if (!configFile.scripts.test) {
         try {
-            const testPath = path.resolve(process.cwd(), '__tests__')
+            const testPath = path.resolve(projDir, '__tests__')
             if (!fs.existsSync(testPath)) {
                 fs.mkdirSync(testPath);
                 configFile.scripts.test = 'node_modules/.bin/jest'
