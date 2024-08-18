@@ -5,7 +5,7 @@ import fs from 'node:fs'
 
 async function main() {
     const packageJson = './package.json'
-    const packagePath = path.resolve(process.cwd(), packageJson)
+    const packagePath = path.resolve(process.env.INIT_CWD || process.cwd(), packageJson)
     let configFile: { scripts?: Record<string, string> }
 
     try {
