@@ -16,7 +16,8 @@
   "scripts": {
     "build": "rm -r dist || echo 'but this is ok' && node_modules/.bin/tsc",
     "test": "node_modules/.bin/jest __tests__",
-    "deploy": "npm run build && npm version patch && git push && npm publish"
+    "deploy": "npm run build && npm version patch && git push && npm publish",
+    "postinstall": "node_modules/.bin/fbltd_init"
   },
   "repository": {
     "type": "git",
