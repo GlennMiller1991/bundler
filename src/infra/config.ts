@@ -1,6 +1,7 @@
 import { IConfig } from "./contracts"
 import path from 'path'
 import { Configuration } from "webpack"
+import { paths } from "./paths"
 
 export const defaultConfig: IConfig = {
     entry: 'index.js',
@@ -34,7 +35,7 @@ export class Config implements IConfig {
 
     set entry(entry: string) {
         if (!entry) return
-        this._entry = path.resolve(process.cwd(), entry)
+        this._entry = path.resolve(paths.ownerRoot, entry)
     }
 
     set mode(mode: typeof this._mode) {
@@ -52,7 +53,7 @@ export class Config implements IConfig {
 
     set output(output: typeof this._output) {
         if (!output) return
-        this._output = path.resolve(process.cwd(), output)
+        this._output = path.resolve(paths.ownerRoot, output)
     }
 
     get port() {
