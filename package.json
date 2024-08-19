@@ -2,16 +2,17 @@
   "name": "@fbltd/bundler",
   "version": "2.0.36",
   "description": "",
-  "main": "index.ts",
   "bin": {
-    "fbltd_make": "dist/bin/make.js",
-    "fbltd_init": "dist/bin/init.js",
-    "fbltd_test": "dist/bin/test.js"
+    "fbltd_make": "./src/make.ts",
+    "fbltd_init": "./src/init.ts",
+    "fbltd_test": "./src/test.ts"
   },
   "files": [
     "README.md",
     "tsconfig.json",
-    "jest.config.json"
+    "jest.config.js",
+    "src",
+    "package.json"
   ],
   "scripts": {
     "build": "rm -r dist || echo 'but this is ok' && node_modules/.bin/tsc",

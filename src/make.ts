@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env ts-node
 
 import childProcess from "node:child_process";
 import fs from 'node:fs/promises';
