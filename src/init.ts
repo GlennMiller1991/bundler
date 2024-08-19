@@ -2,15 +2,14 @@
 
 import path from "path"
 import fs from 'node:fs'
+import { files, paths } from './infra/paths';
 
 async function main() {
-    const packageJson = './package.json'
-    const projDir = process.env.INIT_CWD || process.cwd()
-    const packagePath = path.resolve(projDir, packageJson)
+    const packagePath = path.resolve(paths.ownerRoot, files.packageJson)
     let configFile: { scripts?: Record<string, string> }
 
     try {
-        configFile = JSON.parse(await fs.promises.readFile(packagePath, {encoding: 'utf-8'}))
+        configFile = JSON.parse(await fs.promises.readFile(packagePath, { encoding: 'utf-8' }))
     } catch (err) {
         console.error('Cannot open file package.json')
         return
@@ -26,7 +25,7 @@ async function main() {
 
     if (!configFile.scripts.test) {
         try {
-            const testPath = path.resolve(projDir, '__tests__')
+            const testPath = path.resolve(paths.ownerRoot, '__tests__')
             if (!fs.existsSync(testPath)) {
                 fs.mkdirSync(testPath);
                 configFile.scripts.test = 'node_modules/.bin/jest'
@@ -36,13 +35,33 @@ async function main() {
         }
     }
 
-
     const buffer = Buffer.from(JSON.stringify(configFile, null, '\t'));
     try {
         await fs.promises.writeFile(packagePath, buffer, { flag: "w+" });
     } catch (err) {
         console.error('Cannot write to package.json')
     }
+
+    let tsconfig: {
+        extends?: string
+    }
+
+
+    // region tsconfig edit
+    {
+        const tsconfigPath = path.resolve(paths.ownerRoot, files.tsconfig)
+        try {
+            tsconfig = JSON.parse(await fs.promises.readFile(tsconfigPath, { encoding: 'utf-8' }))
+
+            if (!tsconfig.extends) {
+                tsconfig.extends = 'node_modules/@fbltd/bundler/tsconfig.json'
+            }
+        } catch (err) {
+            console.error('Cannot open file tsconfig.json')
+        }
+    }
+    // endregion tsconfig edit
+
 }
 
 main()
