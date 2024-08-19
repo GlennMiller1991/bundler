@@ -35,7 +35,7 @@ async function main() {
         }
     }
 
-    const buffer = Buffer.from(JSON.stringify(configFile, null, '\t'));
+    let buffer = Buffer.from(JSON.stringify(configFile, null, '\t'));
     try {
         await fs.promises.writeFile(packagePath, buffer, { flag: "w+" });
     } catch (err) {
@@ -56,8 +56,11 @@ async function main() {
             if (!tsconfig.extends) {
                 tsconfig.extends = 'node_modules/@fbltd/bundler/tsconfig.json'
             }
+
+            buffer = Buffer.from(JSON.stringify(tsconfig, null, '\t'))
+            await fs.promises.writeFile(tsconfigPath, buffer, {flag: 'w+'});
         } catch (err) {
-            console.error('Cannot open file tsconfig.json')
+            console.error('Cannot edit file tsconfig.json')
         }
     }
     // endregion tsconfig edit
