@@ -28,14 +28,12 @@
     "url": "https://github.com/GlennMiller1991/bundler/issues"
   },
   "homepage": "https://github.com/GlennMiller1991/bundler#readme",
-  "devDependencies": {
+  "dependencies": {
     "@types/jest": "^29.5.12",
     "@types/node": "^22.2.0",
     "@types/webpack": "^5.28.5",
     "@types/webpack-dev-server": "^4.7.2",
-    "ts-node": "^10.9.2"
-  },
-  "dependencies": {
+    "ts-node": "^10.9.2",
     "jest": "^29.7.0",
     "typescript": "^5.5.4",
     "webpack": "^5.93.0",
