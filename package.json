@@ -10,7 +10,7 @@
   "files": [
     "README.md",
     "tsconfig.json",
-    "jest.config.js",
+    "jest.config.ts",
     "src",
     "package.json"
   ],
