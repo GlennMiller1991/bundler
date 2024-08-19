@@ -32,7 +32,7 @@ async function main() {
                 configFile.scripts.test = 'node_modules/.bin/jest'
             }
         } catch (err) {
-            console.error('Cannot create __tests__ folder')
+            console.error('Cannot make __tests__ folder')
         }
     }
 
