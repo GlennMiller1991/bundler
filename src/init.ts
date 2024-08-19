@@ -28,7 +28,7 @@ async function main() {
             const testPath = path.resolve(paths.ownerRoot, '__tests__')
             if (!fs.existsSync(testPath)) {
                 fs.mkdirSync(testPath);
-                configFile.scripts.test = 'node_modules/.bin/jest'
+                configFile.scripts.test = 'node_modules/.bin/fbltd_test'
             }
         } catch (err) {
             console.error('Cannot make __tests__ folder')
