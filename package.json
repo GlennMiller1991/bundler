@@ -2,6 +2,7 @@
   "name": "@fbltd/bundler",
   "version": "2.0.32",
   "description": "",
+  "main": "index.ts",
   "bin": {
     "fbltd_make": "dist/bin/make.js",
     "fbltd_init": "dist/bin/init.js",
