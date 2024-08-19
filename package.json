@@ -1,6 +1,6 @@
 {
   "name": "@fbltd/bundler",
-  "version": "2.0.42",
+  "version": "2.0.43",
   "description": "",
   "bin": {
     "fbltd_make": "./src/make.ts",
